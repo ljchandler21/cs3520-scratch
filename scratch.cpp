@@ -59,3 +59,79 @@ int main() {
 
   // TODO
 }
+
+
+/*Write a program that prints the sum of integers on each line of a file.
+
+The program reads from the file “in.txt” line-by-line (stopping on any error reading a line). For each line, it reads the line as a list of integers (stopping processing that line on any error). It writes the sum of the integers on each line to a separate line in standard output.
+
+You’ll need to create a file to read from. A file containing:
+1 2
+4 5 6 a 7
+100
+
+Should display:
+3
+15
+100
+
+Hint: use an ifstream to read from the file, and an istringstream to process each line.
+*/
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
+//using namespace std;
+using std::istringstream;
+//using std::cout;
+
+int main() {
+  // TODO
+
+  ifstream inFile("in.txt"); 
+  if (!inFile) {
+    cout << "Error opening file" << endl;
+    return 1; 
+  }
+  //istringstream my_stream(inFile); 
+  string line; 
+  int num; 
+  int sum; 
+  while (getline(inFile, line)) {
+    sum = 0; 
+    istringstream myStream(line); 
+    while (myStream >> num) {
+      //myStream >> num; 
+      sum += num; 
+    }
+    //cout << sum << endl; 
+
+    //for (int i: line) {
+    //  myString >> sum =+ num; 
+    //}
+    cout << sum << endl; 
+  } 
+  
+}
+
+
+
+/*
+int alt() {
+      // Input string
+    string a("1 2 3");
+ 
+    // Object class of istringstream
+    istringstream my_stream(a);
+ 
+    // Variable to store number n
+    int n;
+ 
+    // Stream a number till white space
+    // is encountered
+    my_stream >> n;
+ 
+    // Print the number
+    cout << n << "\n";
+}*/
