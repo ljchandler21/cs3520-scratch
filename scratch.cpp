@@ -78,6 +78,7 @@ Should display:
 Hint: use an ifstream to read from the file, and an istringstream to process each line.
 */
 
+/*
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -135,3 +136,36 @@ int alt() {
     // Print the number
     cout << n << "\n";
 }*/
+
+/*
+Write a function named make_ordered that takes two int arguments a and b by reference. If needed, it swaps the values of the arguments so that the the smaller value is stored in a and the larger in b. That is, it orders the values so that a <= b after the function returns.
+*/
+
+#include <iostream>
+using namespace std;
+
+// TODO
+
+void make_ordered(int &x, int &y) {
+if (x < y) {
+  x = x; 
+  y = y; 
+}
+else if (x > y) {
+  int larger = x; 
+  x = y;  
+  y = larger;  
+}
+}
+
+int main() {
+  int a = 1;
+  int b = 2;
+  make_ordered(a, b);
+  cout << a << " " << b << endl; // 1 2
+
+  a = 2;
+  b = 1;
+  make_ordered(a, b);
+  cout << a << " " << b << endl; // 1 2
+}
