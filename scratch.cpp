@@ -137,10 +137,12 @@ int alt() {
     cout << n << "\n";
 }*/
 
+
+///EX0924-A
 /*
 Write a function named make_ordered that takes two int arguments a and b by reference. If needed, it swaps the values of the arguments so that the the smaller value is stored in a and the larger in b. That is, it orders the values so that a <= b after the function returns.
 */
-
+/*
 #include <iostream>
 using namespace std;
 
@@ -168,4 +170,7 @@ int main() {
   b = 1;
   make_ordered(a, b);
   cout << a << " " << b << endl; // 1 2
-}
+}*/
+
+/// EX0924-B
+
