@@ -219,6 +219,7 @@ LINE 1: TODO
 LINE 2: TODO
 */
 
+/*
 #include <iostream>
 using namespace std;
 
@@ -233,7 +234,7 @@ int main() {
     }
     cout << x << " " << y << endl;
 }
-
+*/
 
 //EX100124-B
 
@@ -246,7 +247,7 @@ You can paste the code into scratch.cpp from the demo to run in VS Code.
 /* ANSWER:
 */
 
-/*
+///*
 #include <iostream>
 using namespace std;
 
@@ -278,4 +279,4 @@ int main() {
     mystery1();
     mystery2();
 }
-*/
+//*/
