@@ -29,12 +29,14 @@ int main() {
     cout << "number or word not submitted" << endl; 
   }
   
-  /*if (cin >> x) {
+  
+  if (cin >> x) {
     cout << "number: " << x << endl; 
   }  else if (cin >> a) {
     cout << "word: " << a << endl; 
   }
-}*/
+}
+*/
 
 /*
 Write a program that prompts the user to enter a number of dice.
@@ -47,7 +49,7 @@ Hint: numeric_limits<streamsize>::max()
 
 Optional challenge: (over)write the result of the dice rolls to a file name "dice.txt" instead of the console.
 */
-
+/*
 #include <iostream>
 #include <fstream>
 #include <cstdlib>
@@ -59,7 +61,7 @@ int main() {
 
   // TODO
 }
-
+*/
 
 /*Write a program that prints the sum of integers on each line of a file.
 
@@ -118,7 +120,7 @@ int main() {
 
 
 
-/*
+k
 int alt() {
       // Input string
     string a("1 2 3");
@@ -215,8 +217,8 @@ Hint: You may need to change your Makefile.
 */
 
 /* ANSWER:
-LINE 1: TODO
-LINE 2: TODO
+LINE 1: 300
+LINE 2: 14397
 */
 
 /*
@@ -236,6 +238,9 @@ int main() {
 }
 */
 
+
+
+
 //EX100124-B
 
 /*
@@ -245,6 +250,24 @@ You can paste the code into scratch.cpp from the demo to run in VS Code.
 */
 
 /* ANSWER:
+LINE 1: 2,000
+LINE 2: 91,181
+-- line 220 ----------------------------------------
+     .           LINE 1: TODO
+     .           LINE 2: TODO
+     .           
+     .           
+     .           
+     .           #include <iostream>
+     .           using namespace std;
+     .           
+     6 ( 0.00%)  int main() {
+     1 ( 0.00%)      int x = 0;
+     1 ( 0.00%)      int y = 0;
+   703 ( 0.02%)      for (int ii = 0; ii < 100; ++ ii) {
+ 2,000 ( 0.06%)          x = ((x + 1) * 7) % 97; // LINE 1
+38,792 ( 1.24%)          for (int jj = 0; jj < x; ++ jj) {
+91,181 ( 2.92%)              y = ((y + 1) * 5) % 97; // LINE 2
 */
 
 ///*

@@ -1,11 +1,11 @@
-PROGRAMS=scratch
+PROGRAMS=scratch ##gcov_test gcov_evenodd
 
-CXXFLAGS=-std=c++17 -O0 -g -fno-inline -Wall -Werror -pedantic-errors
+CXXFLAGS=-std=c++17 -O0 -g -fno-inline -Wall # -Werror -pedantic-errors
 LDFLAGS=-std=c++17
 
 ## for gcov
-#CXXFLAGS:=$(CXXFLAGS) -fprofile-arcs -ftest-coverage
-#LDFLAGS:=$(LDFLAGS) -fprofile-arcs
+CXXFLAGS:=$(CXXFLAGS) -O0 -g -fprofile-arcs -ftest-coverage
+LDFLAGS:=$(LDFLAGS) -fprofile-arcs
 
 all: $(PROGRAMS)
 
