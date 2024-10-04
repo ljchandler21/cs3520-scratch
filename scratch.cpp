@@ -270,7 +270,7 @@ LINE 2: 91,181
 91,181 ( 2.92%)              y = ((y + 1) * 5) % 97; // LINE 2
 */
 
-///*
+/*
 #include <iostream>
 using namespace std;
 
@@ -302,4 +302,86 @@ int main() {
     mystery1();
     mystery2();
 }
-//*/
+*/
+
+
+//1004-A
+/*
+Write a struct named Point2D that represents a two-dimensional integer point.
+
+Write a (non-member) function that will add two of these points (passed by const reference), returning the result.
+
+Hint: struct ... { ... };
+*/
+
+/*
+#include <iostream>
+using namespace std;
+
+// TODO
+
+struct Point2D {
+  int x; 
+  int y; 
+};
+
+Point2D addPoints( Point2D a, Point2D b) {
+  Point2D c = {a.x + b.x, a.y + b.y}; 
+  return c; 
+}
+
+int main() {
+  Point2D a = { 1, 2 };
+  Point2D b = { 3, 4 };
+  Point2D c = addPoints(a, b);
+  cout << c.x << " " << c.y << endl; // 4 6
+}
+*/
+
+
+//1004-B
+/*
+Write a scoped enumeration for the four cardinal directions (North, South, East, West).
+
+Write a function that takes a direction as an argument and returns the opposite direction, and a function that will print out a direction.  Use them to print out the opposite of some directions.
+
+Hint: enum class ... { ... };
+
+Optional challenge: use these functions to write a program that reads in the first character of a direction, and prints out the opposite direction.
+*/
+
+#include <iostream>
+using namespace std;
+
+// TODO
+
+enum class Direction { north, south, east, west };
+Direction opposite(Direction d) {
+  switch (d) {
+    case (Direction::north): Direction::south; 
+    break;
+    case (Direction::south): Direction::north; 
+    break; 
+    case (Direction::east): Direction::west; 
+    break; 
+    case (Direction::west): Direction::east; 
+    break; 
+  }
+}
+
+
+int main() {
+  Direction d = Direction::north;
+  write(opposite(d)); // south
+  d = Direction::south;
+  write(opposite(d)); // north;
+  d = Direction::east;
+  write(opposite(d)); // west;
+  d = Direction::west;
+  write(opposite(d)); // east;
+}
+
+
+
+
+
