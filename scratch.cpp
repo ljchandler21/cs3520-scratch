@@ -349,7 +349,7 @@ Hint: enum class ... { ... };
 
 Optional challenge: use these functions to write a program that reads in the first character of a direction, and prints out the opposite direction.
 */
-
+/*
 #include <iostream>
 using namespace std;
 
@@ -380,8 +380,65 @@ int main() {
   d = Direction::west;
   write(opposite(d)); // east;
 }
+*/
 
+// 1011-a
+/*
+Write a function countChars that takes a C-string and a character as arguments and returns the 
+number of occurrences of the character in the C-string. Don’t use any functions from <cstring>.
+*/
 
+#include <iostream>
+using namespace std;
+
+int countChars(const char str[], char ch) {
+  long unsigned int numreps = 0; 
+  int strLen = sizeof(str)/sizeof(str[0]); 
+  for (int idx = 0; idx < strLen; idx++) {
+    if (str[idx] == ch) {
+      numreps ++; 
+    }
+  }
+  return numreps; 
+  // TODO
+}
+
+int main() {
+  cout << countChars("12341321", '1') << endl; // 3
+  cout << countChars("12341321", '2') << endl; // 2
+  cout << countChars("12341321", '4') << endl; // 1
+}
+
+// 1011-b
+/*
+Write a function reverseStringCopy that copies instr to outstr, reversed; outstr has size outstr_size. If there is not enough room, return false, otherwise, copy instr reversed and return true.
+
+You can use functions from <cstring>.
+
+Hint: don't forget the terminating null character.
+*/
+
+/*
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+bool reverseStringCopy(char * outstr, size_t outstr_size, const char * instr) {
+  // TODO
+}
+
+int main() {
+  const size_t buf_size = 21;
+  char buf[buf_size] = "xxxxxxxxxxxxxxxxxxxx";
+
+  cout << "\"" << (reverseStringCopy(buf, buf_size, "54321") ? buf : "false") << "\"" << endl; // "12345"
+  cout << "\"" << (reverseStringCopy(buf, buf_size, "cba") ? buf : "false") << "\"" << endl; // "abc"
+  cout << "\"" << (reverseStringCopy(buf, buf_size, "") ? buf : "false") << "\"" << endl; // ""
+  cout << "\"" << (reverseStringCopy(buf, buf_size, "01234567890123456789") ? buf : "false") << "\"" << endl; // "98765432109876543210"
+  cout << "\"" << (reverseStringCopy(buf, buf_size, "012345678901234567890") ? buf : "false") << "\"" << endl; // "false"
+  cout << "\"" << (reverseStringCopy(buf, buf_size, "this is a fairly long string") ? buf : "false") << "\"" << endl; // "false"
+}
+*/
 
 
 
