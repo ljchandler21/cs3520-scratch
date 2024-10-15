@@ -492,17 +492,32 @@ Update the function read_and_average_numbers to handle an invalid_argument excep
 #include <vector>
 using namespace std;
 
-double mean_average(const vector<double> & v) {
-  // TODO
+double mean_average(const vector<double> & v, size_t & s) {
+  if (s < 1) {
+    throw invalid_argument("Cannot average empty set");
+  }
+  double sum = 0; 
+  for (long unsigned int i = 0; i < s; i++) {
+    sum += v[i]; 
+  }
+  return sum / s; 
+
 }
 
 void read_and_average_numbers() {
   vector<double> v;
   double x;
+  size_t size = 0; 
   while (cin >> x) {
     v.push_back(x);
+    size++; 
   }
   // TODO
+  try {
+    cout << mean_average(v, size) << endl;  
+  } catch (invalid_argument& e) {
+    cout << "Cannot average empty set." << endl; 
+  }
 }
 
 int main() {
