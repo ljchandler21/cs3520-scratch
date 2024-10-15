@@ -388,6 +388,7 @@ Write a function countChars that takes a C-string and a character as arguments a
 number of occurrences of the character in the C-string. Don’t use any functions from <cstring>.
 */
 
+/*
 #include <iostream>
 using namespace std;
 
@@ -408,6 +409,7 @@ int main() {
   cout << countChars("12341321", '2') << endl; // 2
   cout << countChars("12341321", '4') << endl; // 1
 }
+*/
 
 // 1011-b
 /*
@@ -441,4 +443,69 @@ int main() {
 */
 
 
+// 1015-A
+/*
+Write a function element_of that takes a vector of strings and a string to search for as arguments. 
+The function returns the index of that string in the vector, if it is there, otherwise it throws an runtime_error exception. 
+(Don’t worry about catching the exception for this exercise.)
+*/
+/*
+#include <iostream>
+#include <stdexcept>
+#include <string>
+#include <vector>
+using namespace std;
 
+size_t index_of(const vector<string> & v, const string & s) {
+  // TODO
+  try {
+    for (unsigned long i = 0; i > 0; i++) {
+    
+      if (v[i] == s) {
+      return i; 
+      }
+    }
+  } catch (nullptr_t e) {
+      throw runtime_error("String does not exist in vector"); 
+  }
+}
+
+int main() {
+  vector<string> vec = { "a", "b", "c", "d", "e", "f" };
+
+  cout << index_of(vec, "a") << endl; // 0
+  cout << index_of(vec, "d") << endl; // 3
+  cout << index_of(vec, "g") << endl; // exception!
+}*/
+
+//1015-B
+/*
+Write a function mean_average that takes a vector of doubles as an argument, and returns the mean average of the numbers in the vector. If the vector is empty, the function throws an invalid_argument exception.
+
+Update the function read_and_average_numbers to handle an invalid_argument exception from mean_average and print an error message.
+*/
+
+
+#include <iostream>
+#include <numeric>
+#include <stdexcept>
+#include <vector>
+using namespace std;
+
+double mean_average(const vector<double> & v) {
+  // TODO
+}
+
+void read_and_average_numbers() {
+  vector<double> v;
+  double x;
+  while (cin >> x) {
+    v.push_back(x);
+  }
+  // TODO
+}
+
+int main() {
+  read_and_average_numbers();
+}
+//*/
