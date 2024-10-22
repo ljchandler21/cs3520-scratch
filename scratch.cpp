@@ -485,7 +485,7 @@ Write a function mean_average that takes a vector of doubles as an argument, and
 Update the function read_and_average_numbers to handle an invalid_argument exception from mean_average and print an error message.
 */
 
-
+/*
 #include <iostream>
 #include <numeric>
 #include <stdexcept>
@@ -524,3 +524,45 @@ int main() {
   read_and_average_numbers();
 }
 //*/
+
+
+//1022-A
+
+/*
+Write the implementation for two classes Base and Derived.  Derived inherits from Base and the classes have two member functions: redefinable and overridable.  Both functions return the name of the class as a string; however, the derived class redefines redefinable and overrides overridable.
+
+Hint: one member function should be virtual and one should not.
+*/
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Base {
+public:
+  virtual ~Base() {} // recommended
+  // TODO
+};
+
+class Derived /* TODO */ {
+public:
+  virtual ~Derived() {} // recommended
+  // TODO
+};
+
+void use_base(const Base & b) {
+  cout << b.redefinable() << " " << b.overridable() << endl;
+}
+
+void use_derived(const Derived & d) {
+  cout << d.redefinable() << " " << d.overridable() << endl;
+}
+
+int main() {
+  Base b;
+  Derived d;
+
+  use_base(b); // prints "Base Base"
+  use_base(d); // prints "Base Derived"
+  use_derived(d);  // prints "Derived Derived"
+}
