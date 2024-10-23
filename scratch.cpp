@@ -534,6 +534,7 @@ Write the implementation for two classes Base and Derived.  Derived inherits fro
 Hint: one member function should be virtual and one should not.
 */
 
+/*
 #include <iostream>
 #include <string>
 using namespace std;
@@ -541,13 +542,29 @@ using namespace std;
 class Base {
 public:
   virtual ~Base() {} // recommended
-  // TODO
+  public str redefinable() {
+    return "Base"; 
+  }
+
+  public str overridable() {
+    return "Base";
+  }
+  
 };
 
-class Derived /* TODO */ {
+class Derived : public Base {
 public:
-  virtual ~Derived() {} // recommended
-  // TODO
+  virtual ~Derived() {
+
+    public str redefinable() {
+      return "Derived"; 
+    }
+
+    public str overridable() {
+      return "Derived"; 
+    }
+  } // recommended
+  // 
 };
 
 void use_base(const Base & b) {
@@ -566,3 +583,4 @@ int main() {
   use_base(d); // prints "Base Derived"
   use_derived(d);  // prints "Derived Derived"
 }
+/*
