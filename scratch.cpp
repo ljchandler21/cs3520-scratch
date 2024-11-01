@@ -592,6 +592,7 @@ From the given code for WrappedUInt, add overloaded operators so that a WrappedU
 Hint: There should be three functions written.
 */
 
+/*
 #include <iostream>
 using namespace std;
 
@@ -635,4 +636,46 @@ int main() {
 
   cout << (1U == wi0) << endl; // true
   cout << (2U == wi0) << endl; // false
+}*/
+
+/*
+Write a function that takes a (const reference to a) list, and uses iterators to print out the elements of the list in forward and backward order.
+
+Hint: use auto
+Hint: begin ... end; rbegin ... rend
+
+Optional challenge: try without using auto.
+Optional challenge hint: const_iterator
+*/
+
+#include <iostream>
+#include <list>
+using namespace std;
+
+void print_forward_backward(const list<int> & lst) {
+  //list<int> fwdL = lst;
+  auto fwd = lst.begin(); 
+  //list<int> bkwdL = lst;
+  auto bckwd = lst.end(); 
+  --bckwd;
+  cout << "forward: ";
+  for (int i = 0; i < 5; i++) {
+    cout << "" << *fwd << " ";
+    fwd++; 
+  }
+  endl; 
+  cout << "backward: ";
+  for (int i = 5; i > 0; i--) {
+    cout << "" << *bckwd << " ";
+    -- bckwd; 
+  }
+  endl; 
 }
+
+int main() {
+  list<int> test_list = { 1, 2, 3, 4, 5 };
+  print_forward_backward(test_list);
+  // forward: 1 2 3 4 5
+  // backward: 5 4 3 2 1
+}
+
