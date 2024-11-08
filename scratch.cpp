@@ -648,6 +648,7 @@ Optional challenge: try without using auto.
 Optional challenge hint: const_iterator
 */
 
+/*
 #include <iostream>
 #include <list>
 using namespace std;
@@ -678,4 +679,91 @@ int main() {
   // forward: 1 2 3 4 5
   // backward: 5 4 3 2 1
 }
+*/
+
+
+// 1105A
+/*
+Write a program that reads integers from standard input until error, then sorts the numbers, removes all copies of the largest number, and prints all the numbers.
+
+For example, given input “2 4 1 1 4 3” it should print “1 1 2 3”.
+
+Hint: use sort and remove with vector<T>::erase.
+*/
+
+/*
+#include <algorithm>
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+  vector<int> v;
+
+  int i = 0;
+  while(cin >> i) {
+    v.push_back(i);
+  }
+
+  if (v.empty()) {
+    return EXIT_SUCCESS;
+  }
+
+  // TODO
+}
+
+// 1108A
+/*
+Write a function named swap that swaps the value of two integers through pointers.  Call the function to swap two values. You can assume the arguments are not null.
+*/
+/
+#include <iostream>
+using namespace std;
+
+void swap(/* TODO */) {
+  // TODO
+}
+
+/*
+int main() {
+  int a = 2;
+  int b = 4;
+  cout << a << " " << b << endl; // "2 4"
+  swap(&a, &b);
+  cout << a << " " << b << endl; // "4 2"
+}
+*/
+
+
+// 1108B
+/*
+Write a function named remove that works similarly to the remove algorithm, but with pointers to integers.  That is, given a range of integers from begin and up to (but not including) end, it will remove all integers with the value val from the range, and return a pointer to the new end of the range. You can assume the pointer arguments are not null.
+*/
+
+/*
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int * remove(int * begin, int * end, int val) {
+}
+
+void run(vector<int> vec, int val) {
+  int * begin = &(vec[0]);
+  int * end = remove(begin, begin + vec.size(), val);
+  cout << "array:";
+  for (; begin != end; ++ begin) {
+    cout << " " << *begin;
+  }
+  cout << endl;
+}
+
+int main() {
+  run({ 1, 0, 2, 0, 3, 0, 4 }, 0); // "array: 1 2 3 4"
+  run({ 8, 1, 8, 2, 8, 3, 8 }, 8); // "array: 1 2 3"
+  run({ 1, 2 }, 5);                // "array: 1 2"
+  run({ 1, 1, 1 }, 1);             // "array:"
+}
+*/
+
 
