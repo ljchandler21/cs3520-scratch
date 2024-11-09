@@ -639,7 +639,8 @@ int main() {
 }*/
 
 /*
-Write a function that takes a (const reference to a) list, and uses iterators to print out the elements of the list in forward and backward order.
+Write a function that takes a (const reference to a) list, and uses 
+iterators to print out the elements of the list in forward and backward order.
 
 Hint: use auto
 Hint: begin ... end; rbegin ... rend
@@ -684,7 +685,8 @@ int main() {
 
 // 1105A
 /*
-Write a program that reads integers from standard input until error, then sorts the numbers, removes all copies of the largest number, and prints all the numbers.
+Write a program that reads integers from standard input until error, then sorts the numbers, 
+removes all copies of the largest number, and prints all the numbers.
 
 For example, given input “2 4 1 1 4 3” it should print “1 1 2 3”.
 
@@ -714,7 +716,8 @@ int main() {
 
 // 1108A
 /*
-Write a function named swap that swaps the value of two integers through pointers.  Call the function to swap two values. You can assume the arguments are not null.
+Write a function named swap that swaps the value of two integers through pointers.  
+Call the function to swap two values. You can assume the arguments are not null.
 */
 /
 #include <iostream>
@@ -737,7 +740,9 @@ int main() {
 
 // 1108B
 /*
-Write a function named remove that works similarly to the remove algorithm, but with pointers to integers.  That is, given a range of integers from begin and up to (but not including) end, it will remove all integers with the value val from the range, and return a pointer to the new end of the range. You can assume the pointer arguments are not null.
+Write a function named remove that works similarly to the remove algorithm, but with pointers to integers.  
+That is, given a range of integers from begin and up to (but not including) end, it will remove all integers with the value val from the range, 
+and return a pointer to the new end of the range. You can assume the pointer arguments are not null.
 */
 
 /*
