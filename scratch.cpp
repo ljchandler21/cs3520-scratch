@@ -723,7 +723,10 @@ Call the function to swap two values. You can assume the arguments are not null.
 #include <iostream>
 using namespace std;
 
-void swap(/* TODO */) {
+void swap(int* &a, int* &b) {
+  int* &c = a; 
+  a = b; 
+  b = a;
   // TODO
 }
 
