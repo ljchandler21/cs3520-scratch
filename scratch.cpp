@@ -719,7 +719,7 @@ int main() {
 Write a function named swap that swaps the value of two integers through pointers.  
 Call the function to swap two values. You can assume the arguments are not null.
 */
-/
+/*
 #include <iostream>
 using namespace std;
 
@@ -772,6 +772,6 @@ int main() {
   run({ 1, 2 }, 5);                // "array: 1 2"
   run({ 1, 1, 1 }, 1);             // "array:"
 }
-*/
+//*/
 
 
