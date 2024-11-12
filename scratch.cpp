@@ -775,3 +775,150 @@ int main() {
 //*/
 
 
+// 1112A
+
+/*
+Write a program that dynamically allocates and deallocates Test objects to produce the given output.
+*/
+/*
+#include <iostream>
+using namespace std;
+
+class Test {
+public:
+  Test(int id): m_id(id) {
+    cout << "+ " << m_id << endl;
+  }
+  ~Test() {
+    cout << "- " << m_id << endl;
+  }
+private:
+  const int m_id;
+};
+
+// AS GIVEN BY FOLLOWING ALONG IN CLASS
+// DEMO WAS SHOWN FOR FINISHED PROD.
+int main() {
+  Test *t1 = new Test(1);
+  Test *t2 = new Test(2);
+
+  delete t1; 
+
+  Test *t3 = new Test(3);
+
+  delete t3; 
+  delete t2; 
+
+  // TODO
+  // + 1
+  // + 2
+  // - 1
+  // + 3
+  // - 2
+  // - 3
+}*/
+
+///1112B
+/*
+Write a program that prompts the user for a string length.  Then the program dynamically allocates a char buffer just big enough to hold a C-string of the given length (including space for the null character). It then prompts the user for a string, reads it into the buffer, converts it to uppercase, and displays the uppercase C-string. Then the buffer is deallocated.
+
+Hint: You can use cin.getline(buffer, bufferlength) to read up to bufferlength chars (including the null char) into buffer.
+*/
+
+/*
+#include <iostream>
+#include <limits>
+using namespace std;
+
+int main() {
+  cout << "Enter a string length:" << endl;
+  int len;
+  if (!(cin >> len) || len <= 0) {
+    cout << "Input error." << endl;
+    return -1;
+  }
+  cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+  cout << "Enter a string to uppercase:" << endl;
+
+  char * str = new char[len + 1]; 
+  cin.getline(str, len + 1); 
+
+  for (char * ii = str; *ii; ++ii) {
+    *ii = toupper(*ii); 
+  }
+
+  cout << str << endl; 
+
+  delete []str;
+
+  // TODO
+}
+*/
+
+
+//1112C
+/*
+Write the function allocate, that takes a C-string words as an argument and returns a pointer to a dynamically allocated array of C-strings. The function should copy each space-separatedword (any number of spaces separates words) from the argument into the array. It also stores the number of words found (i.e. the length of the array) in the argument wordcount.  Only use C-strings and related functions.
+
+Hint: copy the C-string into a non-const buf and use strtok to find the words.
+*/
+
+#include <cstring>
+#include <iostream>
+using namespace std;
+
+char **allocate(const char *words, size_t &wordcount) {
+  // TODO
+  char *buf = new char[strlen(words + 1)]; 
+
+  strcpy(buf, words); 
+
+  size_t w = 0; 
+  char * word = strtok(buf. " "); 
+  while (word != nullptr) {
+    ++ w; 
+    word = strtok (nullptr, " ");
+  }
+
+  char ** arr = new char *[w]; 
+ 
+   strcpy(buf, words); 
+
+  size_t w = 0; 
+  word = strtok(buf. " "); 
+  while (word != nullptr) {
+    arr[wordcount] = new char[strlen(word) + 1]; 
+    strcpy(arr[wordcount], word); 
+    ++ wordcount
+    word = strtok (nullptr, " ");
+  }
+
+
+  delete []buf; 
+
+  return arr;
+}
+
+void deallocate(char **arr, size_t n) {
+  for (size_t ii = 0; ii < n; ++ii) {
+    delete[] arr[ii];
+  }
+  delete[] arr;
+}
+
+void print(char **arr, size_t n) {
+  for (size_t ii = 0; ii < n; ++ii) {
+    cout << arr[ii] << endl;
+  }
+}
+
+int main() {
+  // prints "--" "hello" "there," "world" "!" "--"
+  size_t wordcount = 0;
+  char **arr = allocate("hello there,  world !  ", wordcount);
+  cout << "--" << endl;
+  print(arr, wordcount);
+  cout << "--" << endl;
+  deallocate(arr, wordcount);
+}
