@@ -863,7 +863,7 @@ Write the function allocate, that takes a C-string words as an argument and retu
 
 Hint: copy the C-string into a non-const buf and use strtok to find the words.
 */
-
+/*
 #include <cstring>
 #include <iostream>
 using namespace std;
@@ -921,4 +921,119 @@ int main() {
   print(arr, wordcount);
   cout << "--" << endl;
   deallocate(arr, wordcount);
+}*/
+
+// 1115A
+
+/*
+Complete the implementation of the chess piece class hierarchy, and fill in the destructors and print member functions, to produce the indicated output.
+*/
+
+/*
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class ChessPiece {
+public:
+  // TODO
+  virtual ~ChessPiece() = 0; // VIRTUAL DESTRUCTOR MUST HAVE IMPLEMENTATION. Can either solve that here or
+  virtual void print() const = 0; 
+};
+
+ChessPiece::~ChessPiece() {} // Can provide implementation after the class is instantiated.
+
+class Rook : public ChessPiece {
+public:
+  virtual ~Rook( ) override { cout << "~rook" << endl; }
+  virtual void print( ) const override { cout << "rook" << endl; }
+};
+
+class Bishop : public ChessPiece {
+public:
+  virtual ~Bishop( ) override { cout << "~bishop" << endl; }
+  virtual void print( ) const override { cout << "bishop" << endl; }
+};
+
+int main() {
+  vector<ChessPiece *> v;
+  v.push_back(new Rook);
+  v.push_back(new Bishop);
+
+  // prints "Rook" then "Bishop"
+  for (const auto elem: v) {
+    elem->print();
+  }
+
+  // prints "~Rook" then "~Bishop"
+  for (auto elem: v) {
+    delete elem;
+  }
+  v.clear();
+}*/
+
+// 1115B
+
+/*
+Complete the implementation of MovableInt. A MovableInt holds a pointer to a dynamically allocated int that can be moved from object to object (but not copied!).  An empty MovableInt has a null pointer.
+*/
+
+/*
+#include <iostream>
+using namespace std;
+
+class MovableInt {
+public:
+  // allocate new movable int (dynamically allocate a single int and give it the value i)
+  MovableInt(int i) : m_int(new (int(i))) {}
+
+  // move construct
+  MovableInt(MovableInt && o) {
+    // TODO
+    m_int = o.m_int; 
+    o.m_int = nullptr; 
+  }
+
+  // deallocate movable int
+  ~MovableInt() { delete m_int; }
+
+  // move assign
+  MovableInt &operator=(MovableInt && o) {
+    // TODO
+    if (this != &o) {
+    delete m_int; 
+    m_int = o.m_int; 
+    o.m_int = nullptr; 
+    }
+    return *this;
+  }
+
+  bool has_value() const { return m_int; }
+
+  int get_value() const { return *m_int; }
+
+private:
+  MovableInt(const MovableInt &) = delete;
+  MovableInt &operator=(const MovableInt &) = delete;
+
+  int * m_int;
+};
+
+int main() {
+  cout << boolalpha;
+
+  MovableInt m1(1);
+  cout << m1.has_value() << " " << m1.get_value() << endl; // true 1
+  
+  MovableInt m2(2);
+  cout << m2.has_value() << " " << m2.get_value() << endl;// true 2
+
+  MovableInt m3 = move(m1);
+  cout << m1.has_value() << endl; // false
+  cout << m3.has_value() << " " << m3.get_value() << endl; // true 1
+
+  m3 = move(m2);
+  cout << m2.has_value() << endl; // false
+  cout << m3.has_value() << " " << m3.get_value() << endl; // true 2
 }
+//*/
