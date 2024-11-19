@@ -1037,3 +1037,95 @@ int main() {
   cout << m3.has_value() << " " << m3.get_value() << endl; // true 2
 }
 //*/
+
+//1119
+/*
+Complete the implementation of allocate_array to allocate an int array of the given size using a unique_ptr and sort_array to sort a unique_ptr array of ints. Hint: use std::make_unique and std::sort; consider pass by reference.
+*/
+
+#include <algorithm>
+#include <iostream>
+#include <memory>
+using namespace std;
+
+unique_ptr<int[]> allocate_array(size_t sz) {
+  return make_unique<int[]>(sz); 
+}
+
+void sort_array(unique_ptr<int[]> &arr, size_t sz) {
+  sort(arr.get(), arr.get() + sz);
+}
+
+int main() {
+  cout << "Enter an array size:" << endl;
+  size_t arr_sz;
+  if (!(cin >> arr_sz)) {
+    return EXIT_FAILURE;
+  }
+
+  auto arr = allocate_array(arr_sz);
+  for (size_t ii = 0; ii < arr_sz; ++ii) {
+    cout << "Enter a number:" << endl;
+    if (!(cin >> arr.get()[ii])) {
+      return EXIT_FAILURE;
+    }
+  }
+
+  sort_array(arr, arr_sz);
+
+  cout << "Sorted:";
+  for (size_t ii = 0; ii < arr_sz; ++ii) {
+    cout << " " << arr.get()[ii];
+  }
+  cout << endl;
+}
+
+/*
+From the given implementation of TestList, implement the insert_after function for adding elements to the linked list using smart pointers.  Your implementation should not call new or delete directly, and should automatically deallocate all the objects allocated.
+*/
+
+#include <iostream>
+#include <memory>
+using namespace std;
+
+struct Test {
+  Test(int idi): id(idi) { cout << "+ " << id << endl; }
+  ~Test() { cout << "- " << id << endl; }
+  const int id;
+};
+
+class TestList {
+public:
+  TestList(int id): m_item(id), m_next(nullptr) {}
+
+  void print() const {
+    cout << m_item.id;
+    if (m_next) { cout << " "; m_next->print(); }
+    else { cout << endl; }
+  }
+
+  // insert a new TestList node between
+  // this node and the next node with the given id.
+  // return a pointer to the newly allocated node.
+  shared_ptr<TestList> insert_after(int id) {
+    auto next = make_shared<TestList>(id); 
+    next -> m_next = m_next; 
+    m_next = next; 
+    return next; 
+  }
+
+private:
+  Test m_item;
+  shared_ptr<TestList> m_next;
+};
+
+int main() {
+  auto head = make_shared<TestList>(1);
+  auto node = head->insert_after(3);
+  head->insert_after(2);
+  node->insert_after(4);
+  // has constructed 1 through 4
+  head->print(); // prints "1 2 3 4"
+  // will destruct 4 through 1
+}
+
